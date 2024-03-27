@@ -321,7 +321,7 @@ namespace customers.DataType
             SkipListNode currentNode = node;
             int currentRank = rank - 1;
 
-            for (int i = 0; i < high && node.Backward != null; i++, currentRank--)
+            for (int i = 0; i < high && currentNode.Backward != null; i++, currentRank--)
             {
                 currentNode = currentNode.Backward;
                 result.Add(
@@ -338,7 +338,7 @@ namespace customers.DataType
             currentNode = node;
             currentRank = rank + 1;
 
-            for (int i = 1; i <= low && node.Forward[0] != null; i++, currentRank++)
+            for (int i = 1; i <= low && currentNode.Forward[0] != null; i++, currentRank++)
             {
                 currentNode = currentNode.Forward[0];
                 result.Add(

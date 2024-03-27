@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using customers.Models;
 using customers.Services;
 using Microsoft.AspNetCore.Mvc;
-using customers.Models;
 
 namespace customers.Controllers
 {
@@ -24,11 +24,10 @@ namespace customers.Controllers
             try
             {
                 var currentScore = _customersService.AddOrUpdate(customerId, score);
-                return Ok(currentScore); 
+                return Ok(currentScore);
             }
             catch (ArgumentOutOfRangeException ex)
             {
-                
                 return BadRequest(ex.Message);
             }
             catch (Exception ex)
@@ -79,13 +78,12 @@ namespace customers.Controllers
             {
                 return BadRequest(ex.Message);
             }
-
-            catch (Exception)
+            catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error");
+                var errorMessage = $"Error: {ex.Message}\nStackTrace: {ex.StackTrace}";
+                return StatusCode(500, errorMessage);
+                // return StatusCode(500, "Internal Server Error");
             }
         }
     }
 }
-
-

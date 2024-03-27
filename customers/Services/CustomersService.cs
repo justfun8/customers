@@ -9,9 +9,9 @@ namespace customers.Services;
 
 public class CustomersService : ICustomersService
 {
-    private readonly ThreadSafeSkipList _skipList;
+    private readonly IThreadSafeSkipList _skipList;
 
-    public CustomersService(ThreadSafeSkipList skipList)
+    public CustomersService(IThreadSafeSkipList skipList)
     {
         _skipList = skipList;
     }

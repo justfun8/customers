@@ -9,7 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<ThreadSafeSkipList>();
+builder.Services.AddSingleton<IThreadSafeSkipList,ThreadSafeSkipList>();
 
 
 builder.Services.AddSingleton<ICustomersService, CustomersService>();

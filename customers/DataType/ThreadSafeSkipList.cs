@@ -6,7 +6,7 @@ using customers.Models;
 
 namespace customers.DataType
 {
-    public class ThreadSafeSkipList
+    public class ThreadSafeSkipList: IThreadSafeSkipList
     {
         private ReaderWriterLockSlim _rwLock = new ReaderWriterLockSlim();
 
